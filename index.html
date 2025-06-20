@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITNESS PASSION - Transform Your Body, Transform Your Life</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #00ff41;
+            --dark-green: #00cc33;
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #333333;
+            --light-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--gray);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .join-btn {
+            background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+            color: var(--black);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .mobile-menu {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23000" width="1200" height="800"/><g fill="%2300ff41" opacity="0.1"><circle cx="200" cy="200" r="100"/><circle cx="800" cy="300" r="150"/><circle cx="1000" cy="600" r="80"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .highlight {
+            color: var(--primary-green);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+            color: var(--black);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.3);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-green);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        /* Membership Plans */
+        .membership {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .membership .section-title {
+            color: var(--white);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .plan-card {
+            background: var(--gray);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-green);
+        }
+
+        .plan-card.featured {
+            border-color: var(--primary-green);
+            transform: scale(1.05);
+        }
+
+        .plan-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Trainers Section */
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .trainer-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .trainer-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+        }
+
+        .trainer-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .trainer-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .trainer-specialty {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--light-gray);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: var(--primary-green);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            background: var(--gray);
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            width: 30px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--black);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-CS5PWazMg8SZmoNQ8G2T1Z1JPpmfcn.png" alt="FITNESS PASSION Logo">
+                <span class="logo-text">FITNESS PASSION</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#membership">Membership Plans</a></li>
+                <li><a href="#trainers">Trainers</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#transformations">Transformations</a></li>
+                <li><a href="#tips">Fitness Tips</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <button class="join-btn">Join Now</button>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transform Your <span class="highlight">Body</span><br>Transform Your <span class="highlight">Life</span></h1>
+            <p>Join FITNESS PASSION and embark on a journey to become the best version of yourself. Professional trainers, state-of-the-art equipment, and a community that supports your goals.</p>
+            <div class="cta-buttons">
+                <a href="#membership" class="btn-primary">Start Your Journey</a>
+                <a href="#about" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title fade-in">About FITNESS PASSION</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Your Fitness Journey Starts Here</h3>
+                    <p>At FITNESS PASSION, we believe that fitness is not just about physical transformation—it's about building confidence, discipline, and a lifestyle that empowers you to achieve your dreams.</p>
+                    <p>Our state-of-the-art facility, expert trainers, and supportive community create the perfect environment for you to push your limits and discover your true potential.</p>
+                    <p>Whether you're a beginner taking your first steps or an athlete looking to reach new heights, we have the tools, knowledge, and passion to help you succeed.</p>
+                </div>
+                <div class="stats fade-in">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div>Happy Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div>Expert Trainers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div>Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Plans -->
+    <section id="membership" class="section membership">
+        <div class="container">
+            <h2 class="section-title fade-in">Membership Plans</h2>
+            <div class="plans-grid">
+                <div class="plan-card fade-in">
+                    <h3 class="plan-title">Basic</h3>
+                    <div class="plan-price">$29<span style="font-size: 1rem;">/month</span></div>
+                    <ul class="plan-features">
+                        <li>Access to gym equipment</li>
+                        <li>Locker room access</li>
+                        <li>Basic fitness assessment</li>
+                        <li>Group classes (2 per week)</li>
+                    </ul>
+                    <button class="btn-primary">Choose Plan</button>
+                </div>
+                <div class="plan-card featured fade-in">
+                    <h3 class="plan-title">Premium</h3>
+                    <div class="plan-price">$59<span style="font-size: 1rem;">/month</span></div>
+                    <ul class="plan-features">
+                        <li>All Basic features</li>
+                        <li>Personal trainer sessions (4 per month)</li>
+                        <li>Unlimited group classes</li>
+                        <li>Nutrition consultation</li>
+                        <li>Progress tracking</li>
+                    </ul>
+                    <button class="btn-primary">Choose Plan</button>
+                </div>
+                <div class="plan-card fade-in">
+                    <h3 class="plan-title">Elite</h3>
+                    <div class="plan-price">$99<span style="font-size: 1rem;">/month</span></div>
+                    <ul class="plan-features">
+                        <li>All Premium features</li>
+                        <li>Unlimited personal training</li>
+                        <li>Custom meal plans</li>
+                        <li>24/7 gym access</li>
+                        <li>Recovery services</li>
+                        <li>VIP support</li>
+                    </ul>
+                    <button class="btn-primary">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section id="trainers" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Meet Our Expert Trainers</h2>
+            <div class="trainers-grid">
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Mike Johnson</h3>
+                        <p class="trainer-specialty">Strength & Conditioning</p>
+                        <p>10+ years experience in powerlifting and strength training. Specializes in helping clients build muscle and increase strength safely.</p>
+                    </div>
+                </div>
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Sarah Williams</h3>
+                        <p class="trainer-specialty">Cardio & Weight Loss</p>
+                        <p>Certified fitness instructor with expertise in HIIT, cardio training, and sustainable weight loss programs.</p>
+                    </div>
+                </div>
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">David Chen</h3>
+                        <p class="trainer-specialty">Yoga & Flexibility</p>
+                        <p>Yoga instructor and mobility specialist focused on improving flexibility, balance, and mind-body connection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Facility</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-running"></i>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-swimmer"></i>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-bicycle"></i>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-weight-hanging"></i>
+                </div>
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-spa"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformations Section -->
+    <section id="transformations" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Success Stories</h2>
+            <div class="trainers-grid">
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">John's Transformation</h3>
+                        <p class="trainer-specialty">Lost 50 lbs in 6 months</p>
+                        <p>"FITNESS PASSION changed my life. The trainers were supportive, and the community kept me motivated every step of the way."</p>
+                    </div>
+                </div>
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Maria's Journey</h3>
+                        <p class="trainer-specialty">Gained 15 lbs of muscle</p>
+                        <p>"I never thought I could be this strong. The personalized training program helped me achieve goals I never imagined possible."</p>
+                    </div>
+                </div>
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Alex's Success</h3>
+                        <p class="trainer-specialty">Marathon Finisher</p>
+                        <p>"From couch to marathon in one year! The cardio programs and nutrition guidance made all the difference."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitness Tips Section -->
+    <section id="tips" class="section gallery">
+        <div class="container">
+            <h2 class="section-title fade-in">Fitness Tips</h2>
+            <div class="trainers-grid">
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Nutrition Basics</h3>
+                        <p class="trainer-specialty">Fuel Your Workouts</p>
+                        <p>Eat a balanced diet with lean proteins, complex carbs, and healthy fats. Stay hydrated and time your meals around workouts.</p>
+                    </div>
+                </div>
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Consistency is Key</h3>
+                        <p class="trainer-specialty">Build Lasting Habits</p>
+                        <p>Start with 3 workouts per week and gradually increase. Small, consistent efforts lead to big transformations over time.</p>
+                    </div>
+                </div>
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="trainer-info">
+                        <h3 class="trainer-name">Recovery Matters</h3>
+                        <p class="trainer-specialty">Rest and Rebuild</p>
+                        <p>Get 7-9 hours of sleep, take rest days, and listen to your body. Recovery is when your muscles grow and adapt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-content">
+                <form class="contact-form fade-in">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>123 Fitness Street<br>Healthy City, HC 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@fitnesspassion.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon-Fri: 5AM-11PM<br>Sat-Sun: 6AM-10PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FITNESS PASSION</h3>
+                    <p>Transform your body, transform your life. Join our community of fitness enthusiasts and achieve your goals with expert guidance.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#about" style="color: white; text-decoration: none;">About Us</a></li>
+                        <li><a href="#membership" style="color: white; text-decoration: none;">Membership</a></li>
+                        <li><a href="#trainers" style="color: white; text-decoration: none;">Trainers</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul style="list-style: none;">
+                        <li>Personal Training</li>
+                        <li>Group Classes</li>
+                        <li>Nutrition Coaching</li>
+                        <li>Recovery Services</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #555; padding-top: 1rem; margin-top: 2rem;">
+                <p>&copy; 2024 FITNESS PASSION. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Fade In Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form Submission
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+        });
+
+        // Join Now Button Actions
+        document.querySelectorAll('.join-btn, .btn-primary').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (btn.textContent.includes('Join') || btn.textContent.includes('Start')) {
+                    e.preventDefault();
+                    alert('Welcome to FITNESS PASSION! Contact us to start your membership.');
+                }
+            });
+        });
+
+        // Counter Animation for Stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + (counter.textContent.includes('+') ? '+' : '');
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
